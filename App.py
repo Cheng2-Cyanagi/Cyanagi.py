@@ -246,7 +246,8 @@ if st.session_state.get("show_edit_modal", False):
         
         col_d, col_t = st.columns(2)
         with col_d:
-            d_val = datetime.strptime(item.get("date"), "%Y-%m-%d").date() if item.get("date") else None
+            d_val = datetime.strptime(item.get("date"), 
+                                      "%Y-%m-%d").date() if item.get("date") else None
             new_date = st.date_input("日期", value=d_val)
         with col_t:
             new_time = st.text_input("時間 (HH:MM)", value=item.get("time", ""))
@@ -399,3 +400,4 @@ with tab3:
 # Footer
 st.markdown("---")
 st.caption("Made with ❤️ for 靑凪旅程 2026")
+st.write(response.text)
